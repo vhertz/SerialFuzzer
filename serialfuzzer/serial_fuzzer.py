@@ -1,5 +1,7 @@
 import serial
 import os
+
+
 class SerialFuzzer():
 
     def __init__(self, serial, size):
@@ -7,6 +9,6 @@ class SerialFuzzer():
         self._size = size
 
     def fuzz(self):
-        input = os.getrandom(self._size)
+        input = os.urandom(self._size)
         self._serial.write(input)
-        return
+        return input

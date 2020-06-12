@@ -3,6 +3,7 @@ import serialfuzzer
 import serial
 import os
 
+
 class TestSerialFuzzer(TestCase):
 
     def setUp(self):
@@ -16,3 +17,4 @@ class TestSerialFuzzer(TestCase):
                 se.flush()
                 output = fd.read(len(input))
                 self.assertEqual(input, output)
+
