@@ -16,16 +16,16 @@ class SerialFuzzer():
         random.seed(self._seed)
 
     def fuzz(self):
-        input = self.__gen_input()
-        self.__transmit(input)
-        return input
+        data = self.__gen_data()
+        self.__transmit(data)
+        return data
 
-    def __gen_input(self):
-        logger.debug("Generate input")
-        input = bytes(random.getrandbits(8) for _ in range(self._size))
-        logger.info(input)
-        return input
+    def __gen_data(self):
+        logger.debug("Generate data")
+        data = bytes(random.getrandbits(8) for _ in range(self._size))
+        logger.info(data)
+        return data
 
-    def __transmit(self, input):
-        logger.debug("Transmit input")
-        self._serial.write(input)
+    def __transmit(self, data):
+        logger.debug("Transmit data")
+        self._serial.write(data)
