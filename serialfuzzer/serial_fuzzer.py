@@ -2,6 +2,9 @@ import serial
 import os
 import random
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class SerialFuzzer():
 
@@ -14,5 +17,6 @@ class SerialFuzzer():
 
     def fuzz(self):
         input = bytes(random.getrandbits(8) for _ in range(self._size))
+        logger.debug("Generated input: " + str(input))
         self._serial.write(input)
         return input
