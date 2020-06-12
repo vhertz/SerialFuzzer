@@ -1,14 +1,18 @@
 import serial
 import os
+import random
 
 
 class SerialFuzzer():
 
-    def __init__(self, serial, size):
+    def __init__(self, serial, size, seed=0):
         self._serial = serial
         self._size = size
+        self._seed = seed
+
+        random.seed(self._seed)
 
     def fuzz(self):
-        input = os.urandom(self._size)
+        input = bytes(random.getrandbits(8) for _ in range(self._size))
         self._serial.write(input)
         return input
