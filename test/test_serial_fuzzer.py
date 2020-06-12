@@ -17,4 +17,3 @@ class TestSerialFuzzer(TestCase):
                 se.flush()
                 output = fd.read(len(input))
                 self.assertEqual(input, output)
-

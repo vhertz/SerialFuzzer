@@ -1,1 +1,1 @@
-from .serial_fuzzer import SerialFuzzer 
+from .serial_fuzzer import SerialFuzzer
