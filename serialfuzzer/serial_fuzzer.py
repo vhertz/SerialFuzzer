@@ -18,8 +18,11 @@ class SerialFuzzer():
     def fuzz(self):
         input = self.__gen_input()
         logger.debug("Generated input: " + str(input))
-        self._serial.write(input)
+        self.__transmit(input)
         return input
 
     def __gen_input(self):
         return bytes(random.getrandbits(8) for _ in range(self._size))
+
+    def __transmit(self, input):
+        self._serial.write(input)
