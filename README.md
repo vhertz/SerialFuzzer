@@ -4,7 +4,7 @@ a (dumb) fuzzer for serial interfaces.
 
 ## Usage (a sample script)
 
-```
+```python
 import serialfuzzer
 import serial
 import time
